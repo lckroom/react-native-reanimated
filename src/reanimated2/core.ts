@@ -307,6 +307,8 @@ if (!NativeReanimated.useOnlyV1) {
         error: runOnJS(capturableConsole.error),
         info: runOnJS(capturableConsole.info),
       };
-      _setGlobalConsole(console);
+      if (global._setGlobalConsole) {
+        global._setGlobalConsole(console);
+      }
     })();
 }
